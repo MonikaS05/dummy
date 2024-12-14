@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greeting Page</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f9;
+      }
+
+      .rotate-message {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        z-index: 9999;
+      }
+
+      .rotate-message img {
+        width: 50px;
+        margin-bottom: 20px;
+      }
+
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rotate-message" id="rotateMessage">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/2088/2088617.png"
+        alt="Rotate Icon"
+      />
+      <p>Please rotate your mobile</p>
+    </div>
+
+    <div class="content">
+      <!-- Your greeting page content goes here -->
+      <h1>Welcome to Our Restaurant</h1>
+    </div>
+
+    <script>
+      function checkOrientation() {
+        const rotateMessage = document.getElementById("rotateMessage");
+        if (window.innerHeight > window.innerWidth) {
+          rotateMessage.style.display = "flex";
+        } else {
+          rotateMessage.style.display = "none";
+        }
+      }
+
+      window.addEventListener("resize", checkOrientation);
+      window.addEventListener("load", checkOrientation);
+    </script>
+  </body>
+</html>
